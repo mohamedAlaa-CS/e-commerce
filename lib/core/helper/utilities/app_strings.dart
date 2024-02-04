@@ -2,7 +2,7 @@ class AppStrings {
   AppStrings._();
 
 // APIs Strings
-  // static const String EndPoint = '';
+  static const String baseUrl = 'https://ecommerce.routemisr.com/';
   // static const String EndPoint = '';
   // static const String EndPoint = '';
 
