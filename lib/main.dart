@@ -1,7 +1,10 @@
 import 'package:e_commerce/features/Auth/presentation/pages/login_page.dart';
+import 'package:e_commerce/injections.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initInj();
   runApp(const MyApp());
 }
 
