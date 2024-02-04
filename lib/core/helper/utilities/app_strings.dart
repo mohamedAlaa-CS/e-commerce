@@ -12,7 +12,7 @@ class AppStrings {
   static const String prodectTest = 'assets/svg/prodectTest.svg';
 
 // SVG Image
-  static const String logo = 'assets/svg/logo.svg';
+  static const String logo = 'assets/svg/logo_1.svg';
 // SVG Icon
   static const String cartIcon = 'assets/svg/cartIcon.svg';
   static const String homeIcon = 'assets/svg/homeIcon.svg';
