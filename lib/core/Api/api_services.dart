@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:e_commerce/injections.dart';
 
 class ApiServices {
+  static var headers = {'Content-Type': 'application/json'};
   static Future<Map<String, dynamic>> get({
     required String endPoint,
     Map<String, dynamic>? data,
@@ -20,7 +21,8 @@ class ApiServices {
     Map<String, dynamic>? data,
     Map<String, dynamic>? query,
   }) async {
-    Response response = await getIt.get<Dio>().get(
+    getIt.get<Dio>().options.headers = headers;
+    Response response = await getIt.get<Dio>().post(
           endPoint,
           data: data,
           queryParameters: query,
