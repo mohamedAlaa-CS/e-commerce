@@ -49,14 +49,14 @@ class MainTextField extends StatelessWidget {
         TextFormField(
           textAlignVertical: TextAlignVertical.center,
           //style: Styles.font16W300.copyWith(color: Colors.black),
-          validator: validator ,
+          validator: validator,
           controller: controller,
           obscureText: isobscure ?? false,
           obscuringCharacter: '*',
           keyboardType: textType,
           decoration: InputDecoration(
             errorStyle: const TextStyle(
-                fontSize: 11, height: 1, fontWeight: FontWeight.bold),
+                fontSize: 17, fontWeight: FontWeight.bold, color: Colors.black),
             suffixIcon: InkWell(
               onTap: suffixPressed ?? () {},
               child: Icon(suffixIcon, color: Colors.grey.shade600),
@@ -96,7 +96,7 @@ class MainTextField extends StatelessWidget {
               borderRadius: 12.cBorder,
               borderSide: const BorderSide(
                 color: Colors.red,
-                width: .25,
+                width: 2,
               ),
             ),
           ),
