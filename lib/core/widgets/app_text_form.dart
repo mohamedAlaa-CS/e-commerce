@@ -31,7 +31,7 @@ class MainTextField extends StatelessWidget {
   final bool? isobscure;
   final String? hintText;
   final TextEditingController? controller;
-  final String? Function(String?)? validator;
+  final String? Function(String? value)? validator;
   final VoidCallback? suffixPressed;
   final TextInputType? textType;
   final String? title;
@@ -49,10 +49,7 @@ class MainTextField extends StatelessWidget {
         TextFormField(
           textAlignVertical: TextAlignVertical.center,
           //style: Styles.font16W300.copyWith(color: Colors.black),
-          validator: validator ??
-              (value) {
-                return null;
-              },
+          validator: validator ,
           controller: controller,
           obscureText: isobscure ?? false,
           obscuringCharacter: '*',

@@ -14,8 +14,10 @@ Future<void> initInj() async {
 
   dio.interceptors.add(LogInterceptor(
     requestBody: true,
+    request: true,
+    responseHeader: false,
     responseBody: true,
-    requestHeader: true,
+    requestHeader: false,
   ));
 
   getIt.registerSingleton<Dio>(dio);
