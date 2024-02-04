@@ -12,5 +12,6 @@ abstract class AuthRepo {
     required int phone,
     required String email,
     required String poassWord,
+    required String rePoassWord,
   });
 }

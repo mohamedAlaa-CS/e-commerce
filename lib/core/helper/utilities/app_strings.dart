@@ -2,8 +2,8 @@ class AppStrings {
   AppStrings._();
 
 // APIs Strings
-  static const String baseUrl = 'https://ecommerce.routemisr.com/';
-  // static const String EndPoint = '';
+  static const String baseUrl = 'https://ecommerce.routemisr.com/api/v1/';
+  static const String login = 'auth/signin';
   // static const String EndPoint = '';
 
 //Image
