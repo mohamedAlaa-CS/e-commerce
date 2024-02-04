@@ -5,7 +5,7 @@ class MainText extends StatelessWidget {
   const MainText(
     this.text, {
     super.key,
-    this.color = Colors.black,
+    this.color = AppColors.white,
     this.fontSize = 12,
     this.fontWeight,
     this.fontFamily,
@@ -82,8 +82,8 @@ class MainText extends StatelessWidget {
     this.text, {
     super.key,
     this.color = AppColors.textColor,
-    this.fontSize = 14,
-    this.fontWeight = FontWeight.w500,
+    this.fontSize = 20,
+    this.fontWeight = FontWeight.w600,
     this.fontFamily,
     this.textAlign,
     this.textDirection,
@@ -97,7 +97,7 @@ class MainText extends StatelessWidget {
   const MainText.heading(
     this.text, {
     super.key,
-    this.color= AppColors.textColor,
+    this.color = AppColors.textColor,
     this.fontSize = 15,
     this.fontWeight = FontWeight.w600,
     this.fontFamily,
@@ -113,7 +113,7 @@ class MainText extends StatelessWidget {
   const MainText.subHeading(
     this.text, {
     super.key,
-    this.color =AppColors.textColor,
+    this.color = AppColors.textColor,
     this.fontSize = 20,
     this.fontWeight = FontWeight.w500,
     this.fontFamily,
