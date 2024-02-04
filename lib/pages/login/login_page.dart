@@ -64,6 +64,29 @@ class LoginPage extends StatelessWidget {
                 text: 'Login',
                 onPressed: () {},
               ),
+              10.hSize,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const MainText.title(
+                    'Please sign in with your mail ?',
+                    color: AppColors.white,
+                    fontSize: 16,
+                  ),
+                  TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Create Account',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.white,
+                          decoration: TextDecoration.underline,
+                          decorationColor: Colors.blue,
+                        ),
+                      ))
+                ],
+              )
             ],
           ),
         ),
