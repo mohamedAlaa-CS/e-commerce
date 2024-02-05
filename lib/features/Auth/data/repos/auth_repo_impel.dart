@@ -39,7 +39,7 @@ class AuthRepoImpel extends AuthRepo {
   }) async {
     try {
       Map<String, dynamic> data =
-          await ApiServices.post(endPoint: AppStrings.login, data: {
+          await ApiServices.post(endPoint: AppStrings.sigup, data: {
         'name': name,
         'phone': phone,
         'email': email,
