@@ -5,6 +5,7 @@ import 'package:e_commerce/core/helper/functions/show_snack_bar.dart';
 import 'package:e_commerce/core/helper/utilities/app_color.dart';
 import 'package:e_commerce/core/helper/utilities/app_strings.dart';
 import 'package:e_commerce/core/helper/utilities/app_validator.dart';
+import 'package:e_commerce/core/helper/utilities/local_data.dart';
 import 'package:e_commerce/core/widgets/app_text_form.dart';
 import 'package:e_commerce/core/widgets/main_buttom.dart';
 import 'package:e_commerce/core/widgets/main_text.dart';
@@ -30,6 +31,7 @@ class LoginPage extends StatelessWidget {
               listener: (context, state) {
                 if (state is LoginSuccess) {
                   showSnackBar(context, message: state.model.message ?? '');
+                  LocalData.saveToken(state.model.token ?? '');
                 }
               },
               builder: (context, state) {
