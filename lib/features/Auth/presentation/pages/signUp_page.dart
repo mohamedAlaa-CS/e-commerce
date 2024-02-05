@@ -1,8 +1,11 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:e_commerce/core/helper/extensions/assetss_widgets.dart';
 import 'package:e_commerce/core/helper/extensions/context_size.dart';
+import 'package:e_commerce/core/helper/functions/show_snack_bar.dart';
 import 'package:e_commerce/core/helper/utilities/app_color.dart';
 import 'package:e_commerce/core/helper/utilities/app_strings.dart';
 import 'package:e_commerce/core/helper/utilities/app_validator.dart';
+import 'package:e_commerce/core/helper/utilities/local_data.dart';
 import 'package:e_commerce/core/widgets/app_text_form.dart';
 import 'package:e_commerce/core/widgets/main_buttom.dart';
 import 'package:e_commerce/features/Auth/data/repos/auth_repo_impel.dart';
@@ -24,7 +27,21 @@ class SignupPage extends StatelessWidget {
         child: BlocProvider(
           create: (context) => SignupCubit(AuthRepoImpel()),
           child: BlocConsumer<SignupCubit, SignupState>(
-            listener: (context, state) {},
+            listener: (context, state) {
+              if (state is SignupSuccess) {
+                showSnackBar(
+                  context,
+                  message: state.model.message ?? state.model.error ?? '',
+                  error: state.model.error != null,
+                );
+                LocalData.saveToken(
+                  state.model.token ?? '',
+                );
+              }
+              if (state is SignupFailuer) {
+                showSnackBar(context, message: state.errorMessage, error: true);
+              }
+            },
             builder: (context, state) {
               var cubit = SignupCubit.get(context);
               return SingleChildScrollView(
@@ -52,6 +69,7 @@ class SignupPage extends StatelessWidget {
                       ),
                       18.hSize,
                       MainTextField(
+                        textType: TextInputType.number,
                         controller: cubit.phone,
                         validator: AppValidator.phoneValidate,
                         title: 'Mobile Number',
@@ -79,10 +97,21 @@ class SignupPage extends StatelessWidget {
                         hintText: 'enter your password',
                       ),
                       24.hSize,
-                      MainButtom(
-                        text: 'Sign up',
-                        onPressed: () {},
+                      ConditionalBuilder(
+                        condition: state is SignupLoading,
+                        builder: (context) => const Center(
+                          child: CircularProgressIndicator(
+                            color: Colors.blue,
+                          ),
+                        ),
+                        fallback: (context) => MainButtom(
+                          text: 'Sign up',
+                          onPressed: () {
+                            cubit.trySignup();
+                          },
+                        ),
                       ),
+                      10.hSize,
                     ],
                   ),
                 ),

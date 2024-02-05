@@ -32,9 +32,11 @@ class LoginPage extends StatelessWidget {
             child: BlocConsumer<LoginCubit, LoginStates>(
               listener: (context, state) {
                 if (state is LoginSuccess) {
-                  showSnackBar(context,
-                      message: state.model.message ?? '',
-                      error: state.model.message != 'success');
+                  showSnackBar(
+                    context,
+                    message: state.model.message ?? state.model.error ?? '',
+                    error: state.model.error != null,
+                  );
                   LocalData.saveToken(
                     state.model.token ?? '',
                   );

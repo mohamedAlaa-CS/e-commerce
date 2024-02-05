@@ -17,6 +17,11 @@ class SignupCubit extends Cubit<SignupState> {
 
   static SignupCubit get(context) => BlocProvider.of(context);
   final AuthRepo authRepo;
+  trySignup() {
+    if (formKey.currentState!.validate()) {
+      signupUser();
+    }
+  }
 
   signupUser() async {
     emit(SignupLoading());
