@@ -32,7 +32,7 @@ class AuthRepoImpel extends AuthRepo {
   @override
   Future<Either<Failure, UserModel>> userSignup({
     required String name,
-    required int phone,
+    required String phone,
     required String email,
     required String poassWord,
     required String rePoassWord,
