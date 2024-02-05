@@ -7,7 +7,11 @@ final class LoginInitial extends LoginStates {}
 
 final class LoginLoding extends LoginStates {}
 
-final class LoginSuccess extends LoginStates {}
+final class LoginSuccess extends LoginStates {
+  final UserModel model;
+
+  LoginSuccess({required this.model});
+}
 
 final class LoginFailuer extends LoginStates {}
 

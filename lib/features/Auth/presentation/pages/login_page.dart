@@ -1,3 +1,4 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:e_commerce/core/helper/extensions/assetss_widgets.dart';
 import 'package:e_commerce/core/helper/extensions/context_size.dart';
 import 'package:e_commerce/core/helper/functions/show_snack_bar.dart';
@@ -28,7 +29,7 @@ class LoginPage extends StatelessWidget {
             child: BlocConsumer<LoginCubit, LoginStates>(
               listener: (context, state) {
                 if (state is LoginSuccess) {
-                  showSnackBar(context, message: 'hello');
+                  showSnackBar(context, message: state.model.message ?? '');
                 }
               },
               builder: (context, state) {
@@ -88,11 +89,19 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         40.hSize,
-                        MainButtom(
-                          text: 'Login',
-                          onPressed: () {
-                            cubit.tryLogin();
-                          },
+                        ConditionalBuilder(
+                          condition: state is LoginLoding,
+                          builder: (context) => const Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.blue,
+                            ),
+                          ),
+                          fallback: (context) => MainButtom(
+                            text: 'Login',
+                            onPressed: () {
+                              cubit.tryLogin();
+                            },
+                          ),
                         ),
                         10.hSize,
                         Row(

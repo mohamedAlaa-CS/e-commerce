@@ -28,10 +28,9 @@ class LoginCubit extends Cubit<LoginStates> {
       emit(LoginFailuer());
     }, (usermodel) {
       userModel = usermodel;
-      emit(LoginSuccess());
+      emit(LoginSuccess(model: usermodel));
     });
   }
-
 
   IconData suffix = Icons.visibility_outlined;
   bool isPassword = true;
