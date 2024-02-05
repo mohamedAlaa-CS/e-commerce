@@ -3,6 +3,7 @@ import 'package:e_commerce/core/helper/extensions/assetss_widgets.dart';
 import 'package:e_commerce/core/helper/extensions/context_size.dart';
 import 'package:e_commerce/core/helper/functions/show_snack_bar.dart';
 import 'package:e_commerce/core/helper/utilities/app_color.dart';
+import 'package:e_commerce/core/helper/utilities/app_routes.dart';
 import 'package:e_commerce/core/helper/utilities/app_strings.dart';
 import 'package:e_commerce/core/helper/utilities/app_validator.dart';
 import 'package:e_commerce/core/helper/utilities/local_data.dart';
@@ -11,6 +12,7 @@ import 'package:e_commerce/core/widgets/main_buttom.dart';
 import 'package:e_commerce/core/widgets/main_text.dart';
 import 'package:e_commerce/features/Auth/data/repos/auth_repo_impel.dart';
 import 'package:e_commerce/features/Auth/presentation/manager/login_cubit/login_cubit.dart';
+import 'package:e_commerce/features/Auth/presentation/pages/signUp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -119,7 +121,10 @@ class LoginPage extends StatelessWidget {
                               fontSize: 16,
                             ),
                             TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  AppRoutes.routeTo(
+                                      context, const SignupPage());
+                                },
                                 child: const Text(
                                   'Create Account',
                                   style: TextStyle(
