@@ -88,6 +88,11 @@ class SignupPage extends StatelessWidget {
                         validator: AppValidator.passwordValidate,
                         title: 'Password',
                         hintText: 'enter your password',
+                        suffixIcon: cubit.suffix,
+                        isobscure: cubit.isPassword,
+                        suffixPressed: () {
+                          cubit.changeVisablityPassword();
+                        },
                       ),
                       18.hSize,
                       MainTextField(
@@ -95,6 +100,11 @@ class SignupPage extends StatelessWidget {
                         validator: AppValidator.passwordValidate,
                         title: ' confirm Password',
                         hintText: 'enter your password',
+                        suffixIcon: cubit.suffix,
+                        isobscure: cubit.isPassword,
+                        suffixPressed: () {
+                          cubit.changeVisablityPassword();
+                        },
                       ),
                       24.hSize,
                       ConditionalBuilder(

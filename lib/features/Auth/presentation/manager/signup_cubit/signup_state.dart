@@ -18,3 +18,5 @@ final class SignupFailuer extends SignupState {
 
   SignupFailuer({required this.errorMessage});
 }
+
+final class SignupChangeVisabilityPasswordState extends SignupState {}
