@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/helper/extensions/assetss_widgets.dart';
 import 'package:e_commerce/core/helper/extensions/context_size.dart';
+import 'package:e_commerce/core/helper/functions/show_snack_bar.dart';
 import 'package:e_commerce/core/helper/utilities/app_color.dart';
 import 'package:e_commerce/core/helper/utilities/app_strings.dart';
 import 'package:e_commerce/core/helper/utilities/app_validator.dart';
@@ -25,7 +26,11 @@ class LoginPage extends StatelessWidget {
           child: BlocProvider(
             create: (context) => LoginCubit(AuthRepoImpel()),
             child: BlocConsumer<LoginCubit, LoginStates>(
-              listener: (context, state) {},
+              listener: (context, state) {
+                if (state is LoginSuccess) {
+                  showSnackBar(context, message: 'hello');
+                }
+              },
               builder: (context, state) {
                 var cubit = LoginCubit.get(context);
                 return Form(
