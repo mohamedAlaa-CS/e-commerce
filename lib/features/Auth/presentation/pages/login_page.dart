@@ -13,6 +13,7 @@ import 'package:e_commerce/core/widgets/main_text.dart';
 import 'package:e_commerce/features/Auth/data/repos/auth_repo_impel.dart';
 import 'package:e_commerce/features/Auth/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:e_commerce/features/Auth/presentation/pages/signUp_page.dart';
+import 'package:e_commerce/features/home/presentation/pages/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -109,7 +110,11 @@ class LoginPage extends StatelessWidget {
                           fallback: (context) => MainButtom(
                             text: 'Login',
                             onPressed: () {
-                              cubit.tryLogin();
+                              cubit.tryLogin().then((value) {
+                                if (value) {
+                                  AppRoutes.routeTo(context, const MainPage());
+                                }
+                              });
                             },
                           ),
                         ),
