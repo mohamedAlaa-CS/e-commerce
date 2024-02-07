@@ -110,11 +110,12 @@ class LoginPage extends StatelessWidget {
                           fallback: (context) => MainButtom(
                             text: 'Login',
                             onPressed: () {
-                              cubit.tryLogin().then((value) {
-                                if (value) {
-                                  AppRoutes.routeTo(context, const MainPage());
-                                }
-                              });
+                              // cubit.tryLogin().then((value) {
+                              //   if (value) {
+                              //     AppRoutes.routeTo(context, const MainPage());
+                              //   }
+                              // });
+                              AppRoutes.routeTo(context,  MainPage());
                             },
                           ),
                         ),
