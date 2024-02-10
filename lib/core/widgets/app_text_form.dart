@@ -20,6 +20,8 @@ class MainTextField extends StatelessWidget {
     this.suffixPressed,
     this.textType,
     this.title,
+    this.prefixIcon,
+    this.prefixIconOnPressed,
   });
   final EdgeInsetsGeometry? contentPading;
   final InputBorder? focusedBorder;
@@ -35,17 +37,21 @@ class MainTextField extends StatelessWidget {
   final VoidCallback? suffixPressed;
   final TextInputType? textType;
   final String? title;
+  final IconData? prefixIcon;
+  final VoidCallback? prefixIconOnPressed;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        if (title != null)
+        if (title != null) ...{
           MainText.title(
             title!,
             color: AppColors.white,
           ),
-        18.hSize,
+          18.hSize,
+        },
         TextFormField(
           textAlignVertical: TextAlignVertical.center,
           //style: Styles.font16W300.copyWith(color: Colors.black),
@@ -57,6 +63,11 @@ class MainTextField extends StatelessWidget {
           decoration: InputDecoration(
             errorStyle: const TextStyle(
                 fontSize: 17, fontWeight: FontWeight.bold, color: Colors.black),
+            prefixIcon: InkWell(
+              onTap: prefixIconOnPressed ?? () {},
+              child: Icon(prefixIcon, color: Colors.grey.shade600),
+            ),
+
             suffixIcon: InkWell(
               onTap: suffixPressed ?? () {},
               child: Icon(suffixIcon, color: Colors.grey.shade600),
