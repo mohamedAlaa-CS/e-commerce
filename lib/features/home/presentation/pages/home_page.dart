@@ -8,7 +8,7 @@ import 'package:e_commerce/features/home/data/data_source/home_remote_data_sourc
 import 'package:e_commerce/features/home/data/repos/Home_repo_impel.dart';
 import 'package:e_commerce/features/home/domain/use_cases/categories_use_case.dart';
 import 'package:e_commerce/features/home/presentation/manager/home_category_cubit/home_category_cubit.dart';
-import 'package:e_commerce/features/home/presentation/pages/widgets/category_grid_view_item.dart';
+import 'package:e_commerce/features/home/presentation/pages/widgets/category_list_view_section.dart';
 import 'package:e_commerce/features/home/presentation/pages/widgets/home_appliance_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -82,33 +82,13 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                     10.hSize,
-                    SizedBox(
-                      height: 146,
-                      child: ListView.separated(
-                          scrollDirection: Axis.horizontal,
-                          separatorBuilder: (context, index) => 8.wSize,
-                          itemCount: categoriesCubit.categoriesList_1.length,
-                          itemBuilder: (context, index) =>
-                              CategoryGrideViewItem(
-                                image: categoriesCubit
-                                    .categoriesList_1[index].imageUrl,
-                                text: categoriesCubit
-                                    .categoriesList_1[index].title,
-                              )),
+                    CategoryListViewSection(
+                      categoryList: categoriesCubit.categoriesList_1,
+                      onTapItem: () {},
                     ),
-                    SizedBox(
-                      height: 146,
-                      child: ListView.separated(
-                        padding: EdgeInsets.zero,
-                        scrollDirection: Axis.horizontal,
-                        separatorBuilder: (context, index) => 8.wSize,
-                        itemCount: categoriesCubit.categoriesList_2.length,
-                        itemBuilder: (context, index) => CategoryGrideViewItem(
-                          image:
-                              categoriesCubit.categoriesList_2[index].imageUrl,
-                          text: categoriesCubit.categoriesList_2[index].title,
-                        ),
-                      ),
+                    CategoryListViewSection(
+                      categoryList: categoriesCubit.categoriesList_2,
+                      onTapItem: () {},
                     ),
                     const MainText.heading('Home Appliance'),
                     5.hSize,
