@@ -6,6 +6,7 @@ import 'package:e_commerce/core/widgets/main_text.dart';
 import 'package:e_commerce/features/home/data/data_source/home_local_data_source.dart';
 import 'package:e_commerce/features/home/data/data_source/home_remote_data_source.dart';
 import 'package:e_commerce/features/home/data/repos/Home_repo_impel.dart';
+import 'package:e_commerce/features/home/domain/use_cases/brands_use_case.dart';
 import 'package:e_commerce/features/home/domain/use_cases/categories_use_case.dart';
 import 'package:e_commerce/features/home/presentation/manager/home_category_cubit/home_category_cubit.dart';
 import 'package:e_commerce/features/home/presentation/pages/widgets/brand_gride_view.dart';
@@ -20,18 +21,24 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCategoryCubit(
-        CategoriesUseCase(
-          homeRepo: HomeRepoImpel(
+      create: (context) => HomeCategoryCubitAndBrands(
+          CategoriesUseCase(
+            homeRepo: HomeRepoImpel(
+              homeRemoteDataSource: HomeRemoteDataSourceImpel(),
+              homeLocalDataSorce: HomeLocalDataSourceImpel(),
+            ),
+          ),
+          BrandsUseCase(
+              homeRepo: HomeRepoImpel(
             homeRemoteDataSource: HomeRemoteDataSourceImpel(),
             homeLocalDataSorce: HomeLocalDataSourceImpel(),
-          ),
-        ),
-      )..getCategory(),
-      child: BlocConsumer<HomeCategoryCubit, HomeCategoryState>(
+          )))
+        ..getCategory()..getBrands(),
+      child: BlocConsumer<HomeCategoryCubitAndBrands,
+          HomeCategoryAndBrandsStatesState>(
         listener: (context, state) {},
         builder: (context, state) {
-          var categoriesCubit = HomeCategoryCubit.get(context);
+          var categoriesCubit = HomeCategoryCubitAndBrands.get(context);
 
           return SafeArea(
             child: Padding(
