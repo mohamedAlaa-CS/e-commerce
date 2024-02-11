@@ -39,7 +39,7 @@ class SignupCubit extends Cubit<SignupState> {
     });
   }
 
-   IconData suffix = Icons.visibility_outlined;
+  IconData suffix = Icons.visibility_outlined;
   bool isPassword = true;
   void changeVisablityPassword() {
     isPassword = !isPassword;

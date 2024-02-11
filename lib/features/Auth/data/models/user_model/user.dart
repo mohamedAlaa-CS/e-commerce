@@ -10,6 +10,4 @@ class User {
         email: json['email'] as String?,
         role: json['role'] as String?,
       );
-
-  
 }

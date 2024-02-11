@@ -115,7 +115,7 @@ class LoginPage extends StatelessWidget {
                               //     AppRoutes.routeTo(context, const MainPage());
                               //   }
                               // });
-                              AppRoutes.routeTo(context,  MainPage());
+                              AppRoutes.routeTo(context, MainPage());
                             },
                           ),
                         ),
