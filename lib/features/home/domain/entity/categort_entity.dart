@@ -1,8 +1,8 @@
 class CategoryEntity {
-  final String image, title;
+  final String imageUrl, title;
 
   CategoryEntity({
-    required this.image,
+    required this.imageUrl,
     required this.title,
   });
 }

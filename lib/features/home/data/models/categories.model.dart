@@ -1,4 +1,6 @@
-class Categories {
+import 'package:e_commerce/features/home/domain/entity/categort_entity.dart';
+
+class CategoriesModel extends CategoryEntity {
   String? id;
   String? name;
   String? slug;
@@ -6,16 +8,17 @@ class Categories {
   DateTime? createdAt;
   DateTime? updatedAt;
 
-  Categories({
+  CategoriesModel({
     this.id,
     this.name,
     this.slug,
     this.image,
     this.createdAt,
     this.updatedAt,
-  });
+  }) : super(imageUrl: image ?? '', title: name ?? '');
 
-  factory Categories.fromJson(Map<String, dynamic> json) => Categories(
+  factory CategoriesModel.fromJson(Map<String, dynamic> json) =>
+      CategoriesModel(
         id: json['_id'] as String?,
         name: json['name'] as String?,
         slug: json['slug'] as String?,
