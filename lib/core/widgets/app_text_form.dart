@@ -63,10 +63,12 @@ class MainTextField extends StatelessWidget {
           decoration: InputDecoration(
             errorStyle: const TextStyle(
                 fontSize: 17, fontWeight: FontWeight.bold, color: Colors.black),
-            prefixIcon: InkWell(
-              onTap: prefixIconOnPressed ?? () {},
-              child: Icon(prefixIcon, color: Colors.grey.shade600),
-            ),
+            prefixIcon: prefixIcon != null
+                ? InkWell(
+                    onTap: prefixIconOnPressed ?? () {},
+                    child: Icon(prefixIcon, color: Colors.grey.shade600),
+                  )
+                : null,
 
             suffixIcon: InkWell(
               onTap: suffixPressed ?? () {},

@@ -4,7 +4,7 @@ import 'package:e_commerce/core/helper/utilities/app_strings.dart';
 import 'package:e_commerce/core/widgets/app_text_form.dart';
 import 'package:e_commerce/core/widgets/main_text.dart';
 import 'package:e_commerce/features/home/presentation/pages/widgets/category_grid_view_item.dart';
-import 'package:e_commerce/features/home/presentation/pages/widgets/home_appliance_list_view_item.dart';
+import 'package:e_commerce/features/home/presentation/pages/widgets/home_appliance_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -91,13 +91,7 @@ class HomePage extends StatelessWidget {
               ),
               const MainText.heading('Home Appliance'),
               5.hSize,
-              HomeAppllianceListViewItem(
-                image:
-                    'https://fanbooster.com/wp-content/uploads/2020/02/SocialMediaImageSizes2020.jpg',
-                price: 200.toString(),
-                review: 4.5.toString(),
-                title: 'Headphones',
-              ),
+              const HomeApplianceListView(),
             ],
           ),
         ),
