@@ -7,13 +7,13 @@ import 'package:meta/meta.dart';
 
 part 'home_category_state.dart';
 
-class HomeCategoryCubitAndBrands
+class HomeCategoryAndBrandsCubit
     extends Cubit<HomeCategoryAndBrandsStatesState> {
-  HomeCategoryCubitAndBrands(this.categoriesUseCase, this.brandsUseCase)
+  HomeCategoryAndBrandsCubit(this.categoriesUseCase, this.brandsUseCase)
       : super(HomeCategoryAndBrandsInitial());
   final CategoriesUseCase categoriesUseCase;
   final BrandsUseCase brandsUseCase;
-  static HomeCategoryCubitAndBrands get(context) => BlocProvider.of(context);
+  static HomeCategoryAndBrandsCubit get(context) => BlocProvider.of(context);
   List<CategoryEntity> categoriesList = [];
   List<CategoryEntity> categoriesList_1 = [];
   List<CategoryEntity> categoriesList_2 = [];

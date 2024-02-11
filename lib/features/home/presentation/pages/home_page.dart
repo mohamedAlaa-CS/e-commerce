@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCategoryCubitAndBrands(
+      create: (context) => HomeCategoryAndBrandsCubit(
           CategoriesUseCase(
             homeRepo: HomeRepoImpel(
               homeRemoteDataSource: HomeRemoteDataSourceImpel(),
@@ -33,12 +33,13 @@ class HomePage extends StatelessWidget {
             homeRemoteDataSource: HomeRemoteDataSourceImpel(),
             homeLocalDataSorce: HomeLocalDataSourceImpel(),
           )))
-        ..getCategory()..getBrands(),
-      child: BlocConsumer<HomeCategoryCubitAndBrands,
+        ..getCategory()
+        ..getBrands(),
+      child: BlocConsumer<HomeCategoryAndBrandsCubit,
           HomeCategoryAndBrandsStatesState>(
         listener: (context, state) {},
         builder: (context, state) {
-          var categoriesCubit = HomeCategoryCubitAndBrands.get(context);
+          var categoriesCubit = HomeCategoryAndBrandsCubit.get(context);
 
           return SafeArea(
             child: Padding(
