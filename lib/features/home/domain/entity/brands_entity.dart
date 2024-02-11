@@ -1,9 +1,9 @@
 class BrandsEntity {
-  final String id, name, imageUrl;
+  final String Id, title, imageUrl;
 
   BrandsEntity({
-    required this.id,
-    required this.name,
+    required this.Id,
+    required this.title,
     required this.imageUrl,
   });
 }
