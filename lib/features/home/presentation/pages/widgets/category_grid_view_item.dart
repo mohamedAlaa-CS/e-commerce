@@ -13,7 +13,7 @@ class CategoryGrideViewItem extends StatelessWidget {
     return Column(
       children: [
         CircleAvatar(
-          radius: 46,
+          radius: 50,
           backgroundColor: Colors.transparent,
           backgroundImage: NetworkImage(
             image,
@@ -21,7 +21,7 @@ class CategoryGrideViewItem extends StatelessWidget {
         ),
         2.hSize,
         SizedBox(
-            width: context.width / 5,
+            width: context.width / 4.9,
             child: Text(
               text,
               maxLines: 2,
