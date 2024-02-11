@@ -8,8 +8,9 @@ import 'package:e_commerce/features/home/data/data_source/home_remote_data_sourc
 import 'package:e_commerce/features/home/data/repos/Home_repo_impel.dart';
 import 'package:e_commerce/features/home/domain/use_cases/categories_use_case.dart';
 import 'package:e_commerce/features/home/presentation/manager/home_category_cubit/home_category_cubit.dart';
+import 'package:e_commerce/features/home/presentation/pages/widgets/brand_gide_view_item.dart';
+import 'package:e_commerce/features/home/presentation/pages/widgets/brand_gride_view.dart';
 import 'package:e_commerce/features/home/presentation/pages/widgets/category_list_view_section.dart';
-import 'package:e_commerce/features/home/presentation/pages/widgets/home_appliance_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -90,9 +91,13 @@ class HomePage extends StatelessWidget {
                       categoryList: categoriesCubit.categoriesList_2,
                       onTapItem: () {},
                     ),
-                    const MainText.heading('Home Appliance'),
+                    const MainText.heading('Brands'),
                     5.hSize,
-                    const HomeApplianceListView(),
+                    // const HomeApplianceListView(),
+
+                    const SizedBox(height: 200, child: BrandsGrideView())
+
+                    //const SizedBox(height: 100, child: BrandsGrideView()),
                   ],
                 ),
               ),
@@ -103,6 +108,7 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
 
 InputBorder searchBorder() {
   return OutlineInputBorder(
