@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/core/helper/extensions/assetss_widgets.dart';
 import 'package:e_commerce/core/helper/utilities/app_color.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +20,7 @@ class BrandsGrideViewItem extends StatelessWidget {
           color: AppColors.white,
         ),
         padding: 10.aEdge,
-        child: Image.network(
-          image,
-        ),
+        child: CachedNetworkImage(imageUrl: image),
       ),
     );
   }

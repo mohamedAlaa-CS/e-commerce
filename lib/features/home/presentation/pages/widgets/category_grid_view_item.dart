@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/core/helper/extensions/assetss_widgets.dart';
 import 'package:e_commerce/core/helper/extensions/context_size.dart';
 import 'package:e_commerce/core/helper/utilities/app_color.dart';
@@ -15,9 +16,7 @@ class CategoryGrideViewItem extends StatelessWidget {
         CircleAvatar(
           radius: 50,
           backgroundColor: Colors.transparent,
-          backgroundImage: NetworkImage(
-            image,
-          ),
+          backgroundImage: CachedNetworkImageProvider(image),
         ),
         2.hSize,
         SizedBox(
