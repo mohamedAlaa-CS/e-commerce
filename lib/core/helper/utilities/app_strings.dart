@@ -35,4 +35,6 @@ class AppStrings {
 
   // spalsh image svg
   static const String splash = 'assets/images/splash_screen.png';
+  // local boxs
+  static const String categoryBox = 'category_box';
 }

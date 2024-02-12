@@ -15,7 +15,7 @@ class CategoriesModel extends CategoryEntity {
     this.image,
     this.createdAt,
     this.updatedAt,
-  }) : super(imageUrl: image ?? '', title: name ?? '');
+  }) : super(imageUrl: image ?? '', title: name ?? '', Id: id ?? '');
 
   factory CategoriesModel.fromJson(Map<String, dynamic> json) =>
       CategoriesModel(

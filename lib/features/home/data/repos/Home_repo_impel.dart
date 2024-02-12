@@ -18,6 +18,11 @@ class HomeRepoImpel implements HomeRepo {
 
   @override
   Future<Either<Failure, List<CategoryEntity>>> getCategories() async {
+    List<CategoryEntity> data;
+    data = homeLocalDataSorce.getCatecories();
+    if (data.isNotEmpty) {
+      return right(data);
+    }
     try {
       var data = await homeRemoteDataSource.getCAtegories();
       return right(data);
@@ -31,8 +36,8 @@ class HomeRepoImpel implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BrandsEntity>>> getBrands() async{
-   try {
+  Future<Either<Failure, List<BrandsEntity>>> getBrands() async {
+    try {
       var data = await homeRemoteDataSource.getBrands();
       return right(data);
     } catch (e) {

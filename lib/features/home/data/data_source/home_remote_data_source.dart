@@ -4,6 +4,7 @@ import 'package:e_commerce/features/home/data/models/brands.model.dart';
 import 'package:e_commerce/features/home/data/models/categories.model.dart';
 import 'package:e_commerce/features/home/domain/entity/brands_entity.dart';
 import 'package:e_commerce/features/home/domain/entity/categort_entity.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<CategoryEntity>> getCAtegories();
@@ -19,6 +20,8 @@ class HomeRemoteDataSourceImpel implements HomeRemoteDataSource {
     for (var item in response['data']) {
       categoriesList.add(CategoriesModel.fromJson(item));
     }
+    var box = Hive.box<CategoryEntity>(AppStrings.categoryBox);
+    box.addAll(categoriesList);
     return categoriesList;
   }
 
