@@ -41,6 +41,7 @@ class LoginPage extends StatelessWidget {
                   LocalData.saveToken(
                     state.model.token ?? '',
                   );
+                  AppRoutes.routeTo(context, const MainPage());
                 }
               },
               builder: (context, state) {
@@ -110,12 +111,7 @@ class LoginPage extends StatelessWidget {
                           fallback: (context) => MainButtom(
                             text: 'Login',
                             onPressed: () {
-                              // cubit.tryLogin().then((value) {
-                              //   if (value) {
-                              //     AppRoutes.routeTo(context, const MainPage());
-                              //   }
-                              // });
-                              AppRoutes.routeTo(context, MainPage());
+                              cubit.tryLogin();
                             },
                           ),
                         ),

@@ -11,12 +11,9 @@ class LoginCubit extends Cubit<LoginStates> {
   TextEditingController passWord = TextEditingController();
   final formKey = GlobalKey<FormState>(debugLabel: 'LoginForm');
 
-  Future<bool> tryLogin() async {
+  tryLogin() async {
     if (formKey.currentState!.validate()) {
-      await login();
-      return true;
-    } else {
-      return false;
+      return await login();
     }
   }
 
