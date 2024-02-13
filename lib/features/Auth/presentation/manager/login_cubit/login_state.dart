@@ -13,6 +13,10 @@ final class LoginSuccess extends LoginStates {
   LoginSuccess({required this.model});
 }
 
-final class LoginFailuer extends LoginStates {}
+final class LoginFailuer extends LoginStates {
+  final String errorMessge;
+
+  LoginFailuer({required this.errorMessge});
+}
 
 final class LoginChangeVisabilityPasswordState extends LoginStates {}

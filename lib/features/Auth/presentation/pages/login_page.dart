@@ -43,6 +43,10 @@ class LoginPage extends StatelessWidget {
                   );
                   AppRoutes.routeTo(context, const MainPage());
                 }
+                if (state is LoginFailuer) {
+                  showSnackBar(context,
+                      message: state.errorMessge, error: true);
+                }
               },
               builder: (context, state) {
                 var cubit = LoginCubit.get(context);

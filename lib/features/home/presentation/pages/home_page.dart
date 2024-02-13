@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/helper/extensions/assetss_widgets.dart';
 import 'package:e_commerce/core/helper/utilities/app_color.dart';
 import 'package:e_commerce/core/helper/utilities/app_strings.dart';
+import 'package:e_commerce/core/network_info/network_info.dart';
 import 'package:e_commerce/core/widgets/app_text_form.dart';
 import 'package:e_commerce/core/widgets/main_text.dart';
 import 'package:e_commerce/features/home/data/data_source/home_local_data_source.dart';
@@ -14,6 +15,7 @@ import 'package:e_commerce/features/home/presentation/pages/widgets/category_lis
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -26,12 +28,16 @@ class HomePage extends StatelessWidget {
             homeRepo: HomeRepoImpel(
               homeRemoteDataSource: HomeRemoteDataSourceImpel(),
               homeLocalDataSorce: HomeLocalDataSourceImpel(),
+              networkInfo: NetworkInfoImpl(
+                  internetConnectionChecker: InternetConnectionChecker()),
             ),
           ),
           BrandsUseCase(
               homeRepo: HomeRepoImpel(
             homeRemoteDataSource: HomeRemoteDataSourceImpel(),
             homeLocalDataSorce: HomeLocalDataSourceImpel(),
+            networkInfo: NetworkInfoImpl(
+                internetConnectionChecker: InternetConnectionChecker()),
           )))
         ..getCategory()
         ..getBrands(),
