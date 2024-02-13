@@ -37,4 +37,5 @@ class AppStrings {
   static const String splash = 'assets/images/splash_screen.png';
   // local boxs
   static const String categoryBox = 'category_box';
+  static const String brandBox = 'brand_box';
 }

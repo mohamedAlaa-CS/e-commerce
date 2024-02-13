@@ -29,7 +29,8 @@ class HomePage extends StatelessWidget {
               homeRemoteDataSource: HomeRemoteDataSourceImpel(),
               homeLocalDataSorce: HomeLocalDataSourceImpel(),
               networkInfo: NetworkInfoImpl(
-                  internetConnectionChecker: InternetConnectionChecker()),
+                internetConnectionChecker: InternetConnectionChecker(),
+              ),
             ),
           ),
           BrandsUseCase(
@@ -37,7 +38,8 @@ class HomePage extends StatelessWidget {
             homeRemoteDataSource: HomeRemoteDataSourceImpel(),
             homeLocalDataSorce: HomeLocalDataSourceImpel(),
             networkInfo: NetworkInfoImpl(
-                internetConnectionChecker: InternetConnectionChecker()),
+              internetConnectionChecker: InternetConnectionChecker(),
+            ),
           )))
         ..getCategory()
         ..getBrands(),
@@ -106,11 +108,8 @@ class HomePage extends StatelessWidget {
                     ),
                     const MainText.heading('Brands'),
                     5.hSize,
-                    // const HomeApplianceListView(),
-
-                    const SizedBox(height: 200, child: BrandsGrideView())
-
-                    //const SizedBox(height: 100, child: BrandsGrideView()),
+                    const SizedBox(height: 200, child: BrandsGrideView()),
+                    10.hSize,
                   ],
                 ),
               ),

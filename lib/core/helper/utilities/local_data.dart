@@ -7,8 +7,17 @@ class LocalData {
     getIt.get<SharedPreferences>().setString(key, value);
   }
 
+  static saveListString(String key, List<String> value) {
+    getIt.get<SharedPreferences>().setStringList(key, value);
+  }
+
   static getString(String key) {
     getIt.get<SharedPreferences>().getString(key);
+  }
+
+  static List<String>? getListString(String key) {
+    getIt.get<SharedPreferences>().getStringList(key);
+    return null;
   }
 
   static saveToken(String value) {

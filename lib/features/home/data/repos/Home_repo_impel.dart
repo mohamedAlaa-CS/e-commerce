@@ -27,6 +27,7 @@ class HomeRepoImpel implements HomeRepo {
     }
     try {
       var data = await homeRemoteDataSource.getCAtegories();
+      await homeLocalDataSorce.cachCategory(data);
       return right(data);
     } catch (e) {
       if (e is DioException) {
@@ -39,8 +40,13 @@ class HomeRepoImpel implements HomeRepo {
 
   @override
   Future<Either<Failure, List<BrandsEntity>>> getBrands() async {
+    if (await networkInfo.isConnected() == false) {
+      var data = homeLocalDataSorce.getBrands();
+      return right(data);
+    }
     try {
       var data = await homeRemoteDataSource.getBrands();
+      await homeLocalDataSorce.cachBrands(data);
       return right(data);
     } catch (e) {
       if (e is DioException) {

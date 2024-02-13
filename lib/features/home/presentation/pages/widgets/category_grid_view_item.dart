@@ -14,7 +14,7 @@ class CategoryGrideViewItem extends StatelessWidget {
     return Column(
       children: [
         CircleAvatar(
-          radius: 50,
+          radius: 40,
           backgroundColor: Colors.transparent,
           backgroundImage: CachedNetworkImageProvider(image),
         ),
