@@ -98,13 +98,11 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                     10.hSize,
-                    CategoryListViewSection(
-                      categoryList: categoriesCubit.categoriesList_1,
-                      onTapItem: () {},
-                    ),
-                    CategoryListViewSection(
-                      categoryList: categoriesCubit.categoriesList_2,
-                      onTapItem: () {},
+                    SizedBox(
+                      height: 250,
+                      child: CategoryListViewSection(
+                        categoryList: categoriesCubit.categoriesList,
+                      ),
                     ),
                     const MainText.heading('Brands'),
                     5.hSize,
