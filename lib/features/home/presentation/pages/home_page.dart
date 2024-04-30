@@ -10,6 +10,7 @@ import 'package:e_commerce/features/home/data/repos/Home_repo_impel.dart';
 import 'package:e_commerce/features/home/domain/use_cases/brands_use_case.dart';
 import 'package:e_commerce/features/home/domain/use_cases/categories_use_case.dart';
 import 'package:e_commerce/features/home/presentation/manager/home_category_cubit/home_category_cubit.dart';
+import 'package:e_commerce/features/home/presentation/manager/main_cubit/main_cubit.dart';
 import 'package:e_commerce/features/home/presentation/pages/widgets/brand_gride_view.dart';
 import 'package:e_commerce/features/home/presentation/pages/widgets/category_list_view_section.dart';
 import 'package:flutter/material.dart';
@@ -24,23 +25,25 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => HomeCategoryAndBrandsCubit(
-          CategoriesUseCase(
-            homeRepo: HomeRepoImpel(
-              homeRemoteDataSource: HomeRemoteDataSourceImpel(),
-              homeLocalDataSorce: HomeLocalDataSourceImpel(),
-              networkInfo: NetworkInfoImpl(
-                internetConnectionChecker: InternetConnectionChecker(),
-              ),
-            ),
-          ),
-          BrandsUseCase(
-              homeRepo: HomeRepoImpel(
+        CategoriesUseCase(
+          homeRepo: HomeRepoImpel(
             homeRemoteDataSource: HomeRemoteDataSourceImpel(),
             homeLocalDataSorce: HomeLocalDataSourceImpel(),
             networkInfo: NetworkInfoImpl(
               internetConnectionChecker: InternetConnectionChecker(),
             ),
-          )))
+          ),
+        ),
+        BrandsUseCase(
+          homeRepo: HomeRepoImpel(
+            homeRemoteDataSource: HomeRemoteDataSourceImpel(),
+            homeLocalDataSorce: HomeLocalDataSourceImpel(),
+            networkInfo: NetworkInfoImpl(
+              internetConnectionChecker: InternetConnectionChecker(),
+            ),
+          ),
+        ),
+      )
         ..getCategory()
         ..getBrands(),
       child: BlocConsumer<HomeCategoryAndBrandsCubit,
@@ -48,6 +51,7 @@ class HomePage extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           var categoriesCubit = HomeCategoryAndBrandsCubit.get(context);
+          var mainCubit = MainCubit.get(context);
 
           return SafeArea(
             child: Padding(
@@ -101,6 +105,9 @@ class HomePage extends StatelessWidget {
                     SizedBox(
                       height: 250,
                       child: CategoryListViewSection(
+                        categoryClicked: () {
+                          mainCubit.changeCurrentIndex(1);
+                        },
                         categoryList: categoriesCubit.categoriesList,
                       ),
                     ),

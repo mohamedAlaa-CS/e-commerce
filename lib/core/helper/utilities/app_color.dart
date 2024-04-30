@@ -13,6 +13,7 @@ class AppColors {
   static const Color blueLight = Color(0xff0041824d);
   static const Color textColor = Color(0xff06004F);
   static const Color descriptionColor = Color(0xff06004f99);
+  static const Color backGroundContainerColor = Color(0xffDBE4ED);
 
   // Button colors
 }

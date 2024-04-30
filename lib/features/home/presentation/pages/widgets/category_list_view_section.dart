@@ -6,8 +6,10 @@ class CategoryListViewSection extends StatelessWidget {
   const CategoryListViewSection({
     super.key,
     required this.categoryList,
+    required this.categoryClicked,
   });
   final List<CategoryEntity> categoryList;
+  final VoidCallback categoryClicked;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class CategoryListViewSection extends StatelessWidget {
       itemCount: categoryList.length,
       itemBuilder: (context, index) => GestureDetector(
         onTap: () {
-          //  print('categoryList[index] >>>> ${categoryList[index].Id}');
+          categoryClicked();
         },
         child: CategoryGrideViewItem(
           image: categoryList[index].imageUrl,
