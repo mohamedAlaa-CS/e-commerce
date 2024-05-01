@@ -22,6 +22,8 @@ class MainTextField extends StatelessWidget {
     this.title,
     this.prefixIcon,
     this.prefixIconOnPressed,
+    this.titleColor,
+    this.suffixWidget,
   });
   final EdgeInsetsGeometry? contentPading;
   final InputBorder? focusedBorder;
@@ -29,6 +31,8 @@ class MainTextField extends StatelessWidget {
   final InputBorder? border;
   final TextStyle? hintStyle;
   final Color? fillColor;
+  final Color? titleColor;
+  final Widget? suffixWidget;
   final IconData? suffixIcon;
   final bool? isobscure;
   final String? hintText;
@@ -48,7 +52,7 @@ class MainTextField extends StatelessWidget {
         if (title != null) ...{
           MainText.title(
             title!,
-            color: AppColors.white,
+            color: titleColor ?? AppColors.white,
           ),
           18.hSize,
         },
@@ -62,7 +66,10 @@ class MainTextField extends StatelessWidget {
           keyboardType: textType,
           decoration: InputDecoration(
             errorStyle: const TextStyle(
-                fontSize: 17, fontWeight: FontWeight.bold, color: Colors.black),
+              fontSize: 17,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
             prefixIcon: prefixIcon != null
                 ? InkWell(
                     onTap: prefixIconOnPressed ?? () {},
@@ -70,10 +77,13 @@ class MainTextField extends StatelessWidget {
                   )
                 : null,
 
-            suffixIcon: InkWell(
-              onTap: suffixPressed ?? () {},
-              child: Icon(suffixIcon, color: Colors.grey.shade600),
-            ),
+            suffixIcon: suffixIcon != null || suffixWidget != null
+                ? InkWell(
+                    onTap: suffixPressed ?? () {},
+                    child: suffixWidget ??
+                        Icon(suffixIcon, color: Colors.grey.shade600),
+                  )
+                : null,
             hintText: hintText,
             //  hintStyle: hintStyle ?? Styles.font16W300,
             fillColor: fillColor ?? AppColors.white,
