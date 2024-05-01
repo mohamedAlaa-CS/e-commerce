@@ -159,7 +159,10 @@ class _CategoryPageState extends State<CategoryPage> {
                   Expanded(
                     flex: 2,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        const Text('hello Alaa'),
+                        7.hSize,
                         Image.asset(
                           AppStrings.baner_1,
                         ),
