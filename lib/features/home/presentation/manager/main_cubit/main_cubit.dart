@@ -19,7 +19,7 @@ class MainCubit extends Cubit<MainState> {
 
   List<Widget> screenList = [
     const HomePage(),
-     CategoryPage(),
+    CategoryPage(),
     const LovePage(),
     const PersonPage()
   ];

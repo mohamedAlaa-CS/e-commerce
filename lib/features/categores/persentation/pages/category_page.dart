@@ -3,6 +3,8 @@ import 'package:e_commerce/core/helper/utilities/app_color.dart';
 import 'package:e_commerce/core/helper/utilities/app_strings.dart';
 import 'package:e_commerce/core/network_info/network_info.dart';
 import 'package:e_commerce/core/widgets/app_text_form.dart';
+import 'package:e_commerce/features/categores/data/repos/category_repo_imple.dart';
+import 'package:e_commerce/features/categores/persentation/manager/cubit/sub_category_cubit.dart';
 import 'package:e_commerce/features/categores/persentation/widgets/categorySelectAndUnselectItem.dart';
 import 'package:e_commerce/features/home/data/data_source/home_remote_data_source.dart';
 import 'package:e_commerce/features/home/data/models/categories.model.dart';
@@ -158,46 +160,67 @@ class _CategoryPageState extends State<CategoryPage> {
                   7.wSize,
                   Expanded(
                     flex: 2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('hello Alaa'),
-                        7.hSize,
-                        Image.asset(
-                          AppStrings.baner_1,
+                    child: BlocProvider(
+                      create: (context) => SubCategoryCubit(CategoryRepoImpl())
+                        ..getSubCategory(
+                          categoryId: '6439d5b90049ad0b52b90048',
                         ),
-                        10.hSize,
-                        Expanded(
-                          child: GridView.builder(
-                            itemCount: 9,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3,
-                              mainAxisSpacing: 10,
-                              crossAxisSpacing: 10,
-                              childAspectRatio: 1 / 1.3,
-                            ),
-                            itemBuilder: (context, index) {
-                              return Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Expanded(
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset(
-                                        AppStrings.baner_1,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
+                      child: BlocConsumer<SubCategoryCubit, SubCategoryState>(
+                        listener: (context, state) {},
+                        builder: (context, state) {
+                          var subCategoryCubit = SubCategoryCubit.get(context);
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text('mohamed   alaa'),
+                              7.hSize,
+                              Image.asset(
+                                AppStrings.baner_1,
+                              ),
+                              10.hSize,
+                              Expanded(
+                                child: GridView.builder(
+                                  itemCount:
+                                      subCategoryCubit.subCategoryList.length,
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 3,
+                                    mainAxisSpacing: 10,
+                                    crossAxisSpacing: 10,
+                                    childAspectRatio: 1 / 1.3,
                                   ),
-                                  7.hSize,
-                                  const Text('hello'),
-                                ],
-                              );
-                            },
-                          ),
-                        )
-                      ],
+                                  itemBuilder: (context, index) {
+                                    return Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            child: Image.asset(
+                                              AppStrings.baner_1,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        7.hSize,
+                                        Text(
+                                          subCategoryCubit
+                                                  .subCategoryList[index]
+                                                  .name ??
+                                              '',
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ),
+                              )
+                            ],
+                          );
+                        },
+                      ),
                     ),
                   )
                 ],
