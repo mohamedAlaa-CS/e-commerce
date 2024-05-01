@@ -11,8 +11,11 @@ class CategorySelectAndUnselectItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: select ? AppColors.white : AppColors.backGroundContainerColor,
+        ),
         padding: const EdgeInsets.only(top: 10, bottom: 20, left: 10),
-        color: select ? AppColors.white : AppColors.backGroundContainerColor,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

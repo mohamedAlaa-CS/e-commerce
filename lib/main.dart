@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:e_commerce/core/helper/utilities/app_strings.dart';
+import 'package:e_commerce/core/helper/utilities/local_data.dart';
 import 'package:e_commerce/features/home/domain/entity/categort_entity.dart';
 import 'package:e_commerce/features/home/presentation/manager/main_cubit/main_cubit.dart';
 import 'package:e_commerce/features/splash/page/splash_page.dart';
@@ -24,6 +27,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log(LocalData.token.toString());
     return const MaterialApp(
       title: 'e-commerce App',
       home: SplashPage(),

@@ -4,6 +4,7 @@ import 'package:e_commerce/core/Api/api_services.dart';
 import 'package:e_commerce/core/errors/failuer.dart';
 import 'package:e_commerce/core/helper/utilities/app_strings.dart';
 import 'package:e_commerce/features/categores/data/model/sub_category_model.dart';
+import 'package:e_commerce/features/home/data/models/categories.model.dart';
 
 import 'category_repo.dart';
 
@@ -13,12 +14,33 @@ class CategoryRepoImpl implements CategoryRepo {
       String categoryId) async {
     try {
       var response = await ApiServices.get(
-          endPoint: AppStrings.subCategories.replaceAll('id', categoryId));
+        endPoint: AppStrings.subCategories.replaceAll('id', categoryId),
+      );
       List<SubCategoryModel> subCategoryList = [];
       for (var item in response['data']) {
         subCategoryList.add(SubCategoryModel.fromJson(item));
       }
       return right(subCategoryList);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDiorError(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<CategoriesModel>>> getCategories() async {
+    try {
+      var response = await ApiServices.get(
+        endPoint: AppStrings.categories,
+      );
+      List<CategoriesModel> categoryList = [];
+      for (var item in response['data']) {
+        categoryList.add(CategoriesModel.fromJson(item));
+      }
+      return right(categoryList);
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDiorError(e));
