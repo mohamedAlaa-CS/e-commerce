@@ -33,6 +33,7 @@ class AppStrings {
   static const String addCartIcon = 'assets/svg/addCartIcon.svg';
   static const String checkOutIcon = 'assets/svg/checkOutIcon.svg';
   static const String editIcon = 'assets/svg/editIcon.svg';
+  static const String plusTocartIcon = 'assets/svg/plus_icon_to_cart.svg';
 
   // spalsh image svg
   static const String splash = 'assets/images/splash_screen.png';

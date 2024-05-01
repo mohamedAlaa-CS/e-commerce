@@ -1,10 +1,13 @@
 import 'package:e_commerce/core/helper/extensions/assetss_widgets.dart';
 import 'package:e_commerce/core/helper/utilities/app_color.dart';
+import 'package:e_commerce/core/helper/utilities/app_routes.dart';
 import 'package:e_commerce/core/helper/utilities/app_strings.dart';
 import 'package:e_commerce/core/widgets/app_text_form.dart';
 import 'package:e_commerce/features/categores/data/repos/category_repo_imple.dart';
 import 'package:e_commerce/features/categores/persentation/manager/cubit/category_cubit.dart';
+import 'package:e_commerce/features/categores/persentation/pages/prodect_page.dart';
 import 'package:e_commerce/features/categores/persentation/widgets/categorySelectAndUnselectItem.dart';
+import 'package:e_commerce/features/categores/persentation/widgets/grid_view_item_category.dart';
 import 'package:e_commerce/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -140,35 +143,16 @@ class CategoryPage extends StatelessWidget {
                                           childAspectRatio: 1 / 1.3,
                                         ),
                                         itemBuilder: (context, index) {
-                                          return Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Expanded(
-                                                flex: 2,
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(10),
-                                                  child: Image.asset(
-                                                    AppStrings.baner_1,
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                              ),
-                                              7.hSize,
-                                              Expanded(
-                                                flex: 1,
-                                                child: Text(
-                                                  cubit.subCategoryList[index]
-                                                          .name ??
-                                                      '',
-                                                  maxLines: 1,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  textAlign: TextAlign.center,
-                                                ),
-                                              ),
-                                            ],
+                                          return GestureDetector(
+                                            onTap: () {
+                                              AppRoutes.routeTo(
+                                                  context, const ProductPage());
+                                            },
+                                            child: GrideViewItem(
+                                              name: cubit.subCategoryList[index]
+                                                      .name ??
+                                                  '',
+                                            ),
                                           );
                                         },
                                       ),
