@@ -4,7 +4,7 @@ import 'subcategory.dart';
 
 class ProductModel {
   int? sold;
-  List<String>? images;
+  List<dynamic>? images;
   List<Subcategory>? subcategory;
   int? ratingsQuantity;
   String? id;
@@ -41,7 +41,7 @@ class ProductModel {
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
         sold: json['sold'] as int?,
-        images: json['images'] as List<String>?,
+        images: json['images'] as List<dynamic>?,
         subcategory: (json['subcategory'] as List<dynamic>?)
             ?.map((e) => Subcategory.fromJson(e as Map<String, dynamic>))
             .toList(),

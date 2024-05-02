@@ -146,7 +146,15 @@ class CategoryPage extends StatelessWidget {
                                           return GestureDetector(
                                             onTap: () {
                                               AppRoutes.routeTo(
-                                                  context, const ProductPage());
+                                                context,
+                                                ProductPage(
+                                                  subCategoryId: cubit
+                                                          .subCategoryList[
+                                                              index]
+                                                          .id ??
+                                                      '',
+                                                ),
+                                              );
                                             },
                                             child: GrideViewItem(
                                               name: cubit.subCategoryList[index]

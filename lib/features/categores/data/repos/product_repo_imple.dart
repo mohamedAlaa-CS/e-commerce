@@ -13,7 +13,7 @@ class ProductRepoImple implements ProductRepo {
       var response = await ApiServices.get(endPoint: AppStrings.allProducts);
       List<ProductModel> productsList = [];
       for (var item in response['data']) {
-        productsList.add(item);
+        productsList.add(ProductModel.fromJson(item));
       }
       return right(productsList);
     } catch (e) {

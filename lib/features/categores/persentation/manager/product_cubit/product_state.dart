@@ -13,3 +13,7 @@ final class Productfailuer extends ProductState {
   final String error;
   Productfailuer(this.error);
 }
+
+final class ProductFilteredSuccess extends ProductState {}
+
+final class ProductFilteredLoading extends ProductState {}
