@@ -9,6 +9,7 @@ class AppStrings {
   static const String categories = 'categories';
   static const String brands = 'brands';
   static const String subCategories = 'categories/id/subcategories';
+  static const String allProducts = 'products/';
   // static const String EndPoint = '';
 
 //Image
