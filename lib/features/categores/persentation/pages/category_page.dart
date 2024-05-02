@@ -4,7 +4,7 @@ import 'package:e_commerce/core/helper/utilities/app_routes.dart';
 import 'package:e_commerce/core/helper/utilities/app_strings.dart';
 import 'package:e_commerce/core/widgets/app_text_form.dart';
 import 'package:e_commerce/features/categores/data/repos/category_repo_imple.dart';
-import 'package:e_commerce/features/categores/persentation/manager/cubit/category_cubit.dart';
+import 'package:e_commerce/features/categores/persentation/manager/category_cubit/category_cubit.dart';
 import 'package:e_commerce/features/categores/persentation/pages/prodect_page.dart';
 import 'package:e_commerce/features/categores/persentation/widgets/categorySelectAndUnselectItem.dart';
 import 'package:e_commerce/features/categores/persentation/widgets/grid_view_item_category.dart';

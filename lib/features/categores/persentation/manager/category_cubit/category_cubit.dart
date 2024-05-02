@@ -16,8 +16,6 @@ class CategoryCubit extends Cubit<CategoryState> {
     emit(ChangeSelectIndex());
   }
 
- 
-
   String? categoryTitle;
 
   final CategoryRepo _categoryRepo;
@@ -47,7 +45,6 @@ class CategoryCubit extends Cubit<CategoryState> {
       emit(CategorySuccess());
       categoryList.addAll(succes);
       await getSubCategory();
-      
     });
   }
 }

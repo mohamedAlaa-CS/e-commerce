@@ -22,6 +22,5 @@ final class CategoryFaliure extends CategoryState {
   final String error;
   CategoryFaliure(this.error);
 }
- class ChangeSelectIndex extends CategoryState {
 
-}
+class ChangeSelectIndex extends CategoryState {}
